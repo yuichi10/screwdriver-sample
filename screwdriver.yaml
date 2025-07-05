@@ -1,0 +1,16 @@
+jobs:
+  main:
+    requires: [~pr, ~commit]
+    image: node:20
+    environment:
+      TEST_ENV: test
+      FOO: bar
+    steps:
+      - step1: echo "Hello World"
+      - step2: echo "This is a test"
+
+  detached:
+    image: node:20
+    steps:
+      - step1: echo "This is a detached job"
+      - step2: echo "It runs independently of the main job"
